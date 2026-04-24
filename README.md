@@ -1,7 +1,7 @@
 # MLOps Labs - Titanic Training Pipeline
 
 ## Overview
-A training pipeline for the Titanic dataset using scikit-learn models, with automated preprocessing and model saving.
+A configurable training pipeline for the Titanic dataset using scikit-learn models and Hydra for configuration management.
 
 ## Models Used
 - Logistic Regression
@@ -9,6 +9,8 @@ A training pipeline for the Titanic dataset using scikit-learn models, with auto
 
 ## Project Structure
 mlops-labs/
+├── configs/
+│   └── config.yaml
 ├── data/
 │   └── train.csv
 ├── src/
@@ -26,6 +28,10 @@ pip install -r requirements.txt
 
 Train the models:
 python src/train.py
+
+## Configuration
+All pipeline settings are managed in configs/config.yaml
+You can change data path, test size, and model parameters without touching the code.
 
 ## Code Formatting
 python -m isort src/

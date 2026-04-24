@@ -4,3 +4,4 @@ joblib
 black
 isort
 ruff
+hydra-core
