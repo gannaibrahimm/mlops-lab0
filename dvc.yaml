@@ -6,5 +6,13 @@ stages:
       - src/data_loader.py
       - src/preprocessor.py
       - data/train.csv
+    params:
+      - configs/config.yaml:
+          - data.path
+          - data.test_size
+          - data.random_state
+          - models.logistic_regression.max_iter
+          - models.random_forest.n_estimators
+          - models.random_forest.random_state
     outs:
       - saved_models

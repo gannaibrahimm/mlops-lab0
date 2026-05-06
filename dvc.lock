@@ -19,6 +19,14 @@ stages:
       hash: md5
       md5: 2032c5113c29433d7b4099fce3d36d27
       size: 1867
+    params:
+      configs/config.yaml:
+        data.path: data/train.csv
+        data.random_state: 42
+        data.test_size: 0.2
+        models.logistic_regression.max_iter: 1000
+        models.random_forest.n_estimators: 100
+        models.random_forest.random_state: 42
     outs:
     - path: saved_models
       hash: md5

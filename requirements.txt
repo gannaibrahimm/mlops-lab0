@@ -5,3 +5,5 @@ black
 isort
 ruff
 hydra-core
+dvc
+aiohttp==3.9.5
