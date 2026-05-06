@@ -1,0 +1,10 @@
+stages:
+  train:
+    cmd: python src/train.py
+    deps:
+      - src/train.py
+      - src/data_loader.py
+      - src/preprocessor.py
+      - data/train.csv
+    outs:
+      - saved_models
