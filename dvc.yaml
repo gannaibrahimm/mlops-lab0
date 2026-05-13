@@ -14,5 +14,9 @@ stages:
           - models.logistic_regression.max_iter
           - models.random_forest.n_estimators
           - models.random_forest.random_state
+          - mlflow.tracking_uri
+          - mlflow.experiment_name
+          - mlflow.registered_model_name
     outs:
       - saved_models
+      - mlruns

@@ -17,17 +17,25 @@ stages:
       size: 1183
     - path: src/train.py
       hash: md5
-      md5: 2032c5113c29433d7b4099fce3d36d27
-      size: 1867
+      md5: 033c2c1a5ebfc4fd4535b9524a56d9f7
+      size: 3883
     params:
       configs/config.yaml:
         data.path: data/train.csv
         data.random_state: 42
         data.test_size: 0.2
+        mlflow.experiment_name: Titanic Training Pipeline
+        mlflow.registered_model_name: TitanicBestModel
+        mlflow.tracking_uri: file:./mlruns
         models.logistic_regression.max_iter: 1000
         models.random_forest.n_estimators: 100
         models.random_forest.random_state: 42
     outs:
+    - path: mlruns
+      hash: md5
+      md5: 57df09b2b350bb059e0c34010dbe115c.dir
+      size: 2204986
+      nfiles: 58
     - path: saved_models
       hash: md5
       md5: b4c0fe49dd497ccec82638e55af5c9dc.dir

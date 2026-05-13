@@ -1,53 +1,51 @@
 # MLOps Labs - Titanic Training Pipeline
 
 ## Overview
-A configurable and reproducible training pipeline for the Titanic dataset using scikit-learn models, Hydra for configuration management, and DVC for data versioning and pipeline tracking.
+
+A configurable and reproducible machine learning training pipeline for the Titanic dataset using scikit-learn models, Hydra for configuration management, DVC for pipeline tracking, and MLflow for experiment tracking and model registry.
+
+This project trains multiple models, tracks their performance using MLflow, selects the best model based on accuracy, registers it, assigns it as the Production model, and loads it again for prediction.
+
+> Note: This version uses local MLflow tracking and local MLflow Model Registry. It does not use DagsHub.
+
+---
 
 ## Models Used
+
 - Logistic Regression
 - Random Forest
 
+---
+
+## Tools Used
+
+- Python
+- scikit-learn
+- Hydra
+- DVC
+- MLflow
+- Joblib
+
+---
+
 ## Project Structure
+
+```text
 mlops-lab0/
 ├── .dvc/
 ├── configs/
 │   └── config.yaml
 ├── data/
-│   └── train.csv
+│   ├── train.csv
+│   └── train.csv.dvc
 ├── src/
 │   ├── data_loader.py
 │   ├── preprocessor.py
-│   └── train.py
+│   ├── train.py
+│   └── predict.py
 ├── saved_models/
+├── mlruns/
 ├── dvc.yaml
 ├── dvc.lock
 ├── requirements.txt
 └── README.md
-
-## How to Run
-
-Install dependencies:
-pip install -r requirements.txt
-
-Pull data and models from remote storage:
-dvc pull
-
-Train the models:
-python src/train.py
-
-Run the full DVC pipeline:
-dvc repro
-
-## Configuration
-All pipeline settings are managed in configs/config.yaml
-You can change data path, test size, and model parameters without touching the code.
-
-## DVC Remote Storage
-Data and models are stored on DagsHub.
-To push updates to remote storage:
-dvc push
-
-## Code Formatting
-python -m isort src/
-python -m black src/
-python -m ruff check src/
